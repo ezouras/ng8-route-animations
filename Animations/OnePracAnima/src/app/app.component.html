@@ -1,0 +1,21 @@
+<nav class="navbar is-info" role="navigation">
+  <div class="item">
+    <a href="#" class="link" routerLink="/left">
+      Left Page
+    </a>
+  </div>
+  <div class="item">
+    <a href="#" class="link" routerLink="/about">
+      About Page
+    </a>
+  </div>
+  <div class="item">
+    <a href="#" class="link" routerLink="/right">
+      Right Page
+    </a>
+  </div>
+</nav><!-- routeAnimations is the string
+passed to the trigger function-->
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>

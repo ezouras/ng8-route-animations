@@ -1,0 +1,40 @@
+//** FLOW **// we are animating elements
+
+DEFINE THE ANIMATIONS in ROUTE-ANIMATIONS.TS
+
+1/ your animations are defined in
+"route-animations.ts"
+
+2/ in route-animations create an animation.
+    a/ the "fader" const is equal to a function called "trigger".
+      export const fader =
+        trigger("routeAnimations",[
+        ])
+    b/ the trigger function takes in a string - "routeAnimations"
+    which is how you will bind this animation to the html template
+
+    c/ for "trigger" to work, you must import it from the animations
+    library:
+        import {trigger} from "@angular/animations"
+
+
+3/ Trigger continued.
+  angular will apply two pseudo selectors to the elements that we are animating.
+      a. :enter - new page
+      b. :leave - old page 
+
+
+
+
+
+1/ prepareRoute(outlet) in app.component.html
+determine which animation to apply to a given route.
+
+2/ This is a way to grab router outlet data in order
+to animate it
+<router-outlet #outlet="outlet"></router-outlet>
+define the outlet
+#outlet = is the template variable name.
+Whenever a route changes,
+you can animate whatever is in
+"router-outlet"
