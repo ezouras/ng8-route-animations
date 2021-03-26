@@ -5,7 +5,6 @@ import {
   style,
   query,
   group,
-  animateChild,
   animate,
   keyframes
 } from "@angular/animations";
@@ -40,19 +39,19 @@ export const slider =
     trigger("routeAnimations",[
       //isLeft is somthing that is gotten from app-routing module.
       //if you are going from anywhere to the route with "isLeft"
-      transition("* => isLeft", slideTo("left")),//here we pass a function
+      transition("* => isLeft", slideTo("right")),//here we pass a function
       //from anywhere TO 'isRight' route
-      transition("* => isRight", slideTo("right")),
+      transition("* => isRight", slideTo("left")),
       //isRight going anywhere slide left
-      transition("isRight => * ", slideTo("left")),
+    //  transition("isRight => *", slideTo("right")),
       //from isRight to anywhere
-      transition("isLeft => * ", slideTo("right"))
+    //  transition("isLeft => * ", slideTo("right"))
       //from is left to anywhere
 ]);
 
 export const transformer =
   trigger('routeAnimations', [
-    transition('* => isLeft', translateTo({ x: -100, y: -100, rotate: -720 }) ),
+    transition('* =>  isLeft', translateTo({ x: -100, y: -100, rotate: -720 }) ),
     transition('* => isRight', translateTo({ x: 100, y: -100, rotate: 90 }) ),
     transition('isRight => *', translateTo({ x: -100, y: -100, rotate: 360 }) ),
     transition('isLeft => *', translateTo({ x: 100, y: -100, rotate: -360 }) )
@@ -62,7 +61,7 @@ export const transformer =
 function slideTo(direction){ //variable direction passed from above
   const optional = { optional: true };
   return [
-    query(":enter, :leave",[
+    query(":leave",[
       style({
         position: "absolute",
         top:0,
